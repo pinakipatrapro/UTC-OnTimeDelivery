@@ -64,7 +64,9 @@ class BasicBot {
     if(topIntent === 'measurebydimension'){
       var result = await this.parseIntentmeasurebydimension(aMeasures[0],aDimension[0],context);
     }
-    
+    if(topIntent === 'totalmeasure'){
+      var result = await this.parseIntentmeasurebydimension(aMeasures[0],context);
+    }
   }
 
   async parseIntentmeasurebydimension(measure,dimension,context){
@@ -84,6 +86,25 @@ class BasicBot {
     var formattedMeasure   = this.fuseSearch(serviceMetadata.Property, options, measure);
 
     var result = await intentRouter.measurebydimension(formattedMeasure,formattedDimension);
+    await context.sendActivity(result);
+  }
+
+  async parseIntenttotalmeasure(measure,context){
+    var options = {
+      shouldSort: true,
+      threshold: 0.3,
+      includeScore: true,
+      location: 0,
+      distance: 100,
+      maxPatternLength: 32,
+      minMatchCharLength: 1,
+      keys: [
+        "_sap:label"
+    ]
+    };
+    var formattedMeasure   = this.fuseSearch(serviceMetadata.Property, options, measure);
+
+    var result = await intentRouter.totalmeasure(formattedMeasure);
     await context.sendActivity(result);
   }
 

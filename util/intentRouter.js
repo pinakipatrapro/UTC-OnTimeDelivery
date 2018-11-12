@@ -46,6 +46,24 @@ class IntentRouter {
                 });
         }.bind(this))
     }
+    totalmeasure(measure) {
+        var selectString = '&$select=' + measure._Name;
+        return new Promise(function (resolve, reject) {
+            request({
+                url: this.url + selectString,
+                auth: {
+                    user: username,
+                    password: password
+                }
+            },
+                function (error, response, body) {
+                    var aValues = JSON.parse(body).d.results[0];
+                    var replyText = 'The total/average ' + measure['_sap:label'] + ' is ' + Math.round(e[measure._Name]*10)/10
+
+                    resolve(replyText);
+                });
+        }.bind(this))
+    }
 };
 
 module.exports.IntentRouter = IntentRouter;
