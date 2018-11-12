@@ -1,6 +1,7 @@
 var request = require('request');
 const { ActivityTypes, MessageFactory, TurnContext } = require('botbuilder');
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+const { serviceMetadata } = require('../backendModel/metadata');
 
 
 var username = 'KHANAA'
