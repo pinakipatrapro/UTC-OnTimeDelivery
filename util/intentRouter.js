@@ -36,11 +36,11 @@ class IntentRouter {
 
                     // var reply = MessageFactory.suggestedActions(aReplyValues, 'Select Product to view further details');
                     // resolve(aReplyValues.join(','));
-                    
+
                     resolve(MessageFactory.attachment(
                         CardFactory.heroCard(
                             aReplyValues.join(',\n'),
-                            ['https://chart.googleapis.com/chart?chxt=x,y&cht=bvs&chd=s:cEj9U&chco=16A4FB&chls=4.0&chs=999x200&chxl=0:|Macintosh|Feb|Mar|Apr|May&chbh=30,70']
+                            ['https://chart.googleapis.com/chart?cht=bhs&chco=FF0000|00FF00|0000FF,FFC6A5|DEF3BD|C6EFF7&chs=400x130&chd=s:FOE,elo&chxt=x,y&chxl=1:|Dec|Nov|Oct|0:||20K||60K||100K|']
                         )
                     ));
                 });
