@@ -58,7 +58,7 @@ class IntentRouter {
             },
                 function (error, response, body) {
                     var aValues = JSON.parse(body).d.results[0];
-                    var replyText = 'The total/average ' + measure['_sap:label'] + ' is ' + Math.round(e[measure._Name]*10)/10
+                    var replyText = 'The total/average ' + measure['_sap:label'] + ' is ' + Math.round(aValues[measure._Name]*10)/10
 
                     resolve(replyText);
                 });

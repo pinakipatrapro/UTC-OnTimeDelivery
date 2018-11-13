@@ -65,7 +65,7 @@ class BasicBot {
       var result = await this.parseIntentmeasurebydimension(aMeasures[0],aDimension[0],context);
     }
     if(topIntent === 'totalmeasure'){
-      var result = await this.parseIntentmeasurebydimension(aMeasures[0],context);
+      var result = await this.parseIntenttotalmeasure(aMeasures[0],context);
     }
   }
 
